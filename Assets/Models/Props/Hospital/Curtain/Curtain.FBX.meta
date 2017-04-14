@@ -1,0 +1,307 @@
+fileFormatVersion: 2
+guid: f6d0c9a87d6405c4bb5ca004d7e97ebf
+timeCreated: 1485039374
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bedframe001
+    100002: Bedframe002
+    100004: Blanket001
+    100006: Blanket002
+    100008: Board001
+    100010: Board002
+    100012: Box007
+    100014: Box032
+    100016: Box033
+    100018: Camera001
+    100020: Camera001.Target
+    100022: Camera002
+    100024: Camera002.Target
+    100026: Card003
+    100028: Card004
+    100030: Chair001
+    100032: Chair002
+    100034: Couch001
+    100036: Couch002
+    100038: //RootNode
+    100040: Eating table001
+    100042: Eating table002
+    100044: Foodtray001
+    100046: Foodtray002
+    100048: Heater001
+    100050: Heater002
+    100052: Light001
+    100054: Light002
+    100056: mattress001
+    100058: mattress002
+    100060: Nightstand001
+    100062: Nightstand002
+    100064: Object001
+    100066: Object002
+    100068: Object003
+    100070: Object004
+    100072: Pillow001
+    100074: Pillow002
+    100076: Plane001
+    100078: Plane002
+    100080: Plane003
+    100082: Plane004
+    100084: Plane005
+    100086: Plane006
+    100088: Rail001
+    100090: Rail002
+    100092: Sky
+    100094: Vase001
+    100096: Vase002
+    400000: Bedframe001
+    400002: Bedframe002
+    400004: Blanket001
+    400006: Blanket002
+    400008: Board001
+    400010: Board002
+    400012: Box007
+    400014: Box032
+    400016: Box033
+    400018: Camera001
+    400020: Camera001.Target
+    400022: Camera002
+    400024: Camera002.Target
+    400026: Card003
+    400028: Card004
+    400030: Chair001
+    400032: Chair002
+    400034: Couch001
+    400036: Couch002
+    400038: //RootNode
+    400040: Eating table001
+    400042: Eating table002
+    400044: Foodtray001
+    400046: Foodtray002
+    400048: Heater001
+    400050: Heater002
+    400052: Light001
+    400054: Light002
+    400056: mattress001
+    400058: mattress002
+    400060: Nightstand001
+    400062: Nightstand002
+    400064: Object001
+    400066: Object002
+    400068: Object003
+    400070: Object004
+    400072: Pillow001
+    400074: Pillow002
+    400076: Plane001
+    400078: Plane002
+    400080: Plane003
+    400082: Plane004
+    400084: Plane005
+    400086: Plane006
+    400088: Rail001
+    400090: Rail002
+    400092: Sky
+    400094: Vase001
+    400096: Vase002
+    2300000: Bedframe001
+    2300002: Bedframe002
+    2300004: Blanket001
+    2300006: Blanket002
+    2300008: Board001
+    2300010: Board002
+    2300012: Box007
+    2300014: Box032
+    2300016: Box033
+    2300018: Card003
+    2300020: Card004
+    2300022: Chair001
+    2300024: Chair002
+    2300026: Couch001
+    2300028: Couch002
+    2300030: Eating table001
+    2300032: Eating table002
+    2300034: Foodtray001
+    2300036: Foodtray002
+    2300038: Heater001
+    2300040: Heater002
+    2300042: Light001
+    2300044: Light002
+    2300046: mattress001
+    2300048: mattress002
+    2300050: Nightstand001
+    2300052: Nightstand002
+    2300054: Object001
+    2300056: Object002
+    2300058: Object003
+    2300060: Object004
+    2300062: Pillow001
+    2300064: Pillow002
+    2300066: Plane001
+    2300068: Plane002
+    2300070: Plane003
+    2300072: Plane004
+    2300074: Plane005
+    2300076: Plane006
+    2300078: Rail001
+    2300080: Rail002
+    2300082: Sky
+    2300084: Vase001
+    2300086: Vase002
+    3300000: Bedframe001
+    3300002: Bedframe002
+    3300004: Blanket001
+    3300006: Blanket002
+    3300008: Board001
+    3300010: Board002
+    3300012: Box007
+    3300014: Box032
+    3300016: Box033
+    3300018: Card003
+    3300020: Card004
+    3300022: Chair001
+    3300024: Chair002
+    3300026: Couch001
+    3300028: Couch002
+    3300030: Eating table001
+    3300032: Eating table002
+    3300034: Foodtray001
+    3300036: Foodtray002
+    3300038: Heater001
+    3300040: Heater002
+    3300042: Light001
+    3300044: Light002
+    3300046: mattress001
+    3300048: mattress002
+    3300050: Nightstand001
+    3300052: Nightstand002
+    3300054: Object001
+    3300056: Object002
+    3300058: Object003
+    3300060: Object004
+    3300062: Pillow001
+    3300064: Pillow002
+    3300066: Plane001
+    3300068: Plane002
+    3300070: Plane003
+    3300072: Plane004
+    3300074: Plane005
+    3300076: Plane006
+    3300078: Rail001
+    3300080: Rail002
+    3300082: Sky
+    3300084: Vase001
+    3300086: Vase002
+    4300000: Box007
+    4300002: Sky
+    4300004: Couch001
+    4300006: Chair001
+    4300008: mattress001
+    4300010: Pillow001
+    4300012: Bedframe001
+    4300014: Light001
+    4300016: Rail001
+    4300018: Nightstand001
+    4300020: Eating table001
+    4300022: Heater001
+    4300024: Board001
+    4300026: Card003
+    4300028: Vase001
+    4300030: Foodtray001
+    4300032: Box032
+    4300034: Blanket001
+    4300036: Object001
+    4300038: Object002
+    4300040: Plane001
+    4300042: Plane002
+    4300044: Plane003
+    4300046: Couch002
+    4300048: Chair002
+    4300050: mattress002
+    4300052: Pillow002
+    4300054: Bedframe002
+    4300056: Light002
+    4300058: Rail002
+    4300060: Nightstand002
+    4300062: Eating table002
+    4300064: Heater002
+    4300066: Board002
+    4300068: Card004
+    4300070: Vase002
+    4300072: Foodtray002
+    4300074: Plane004
+    4300076: Blanket002
+    4300078: Object003
+    4300080: Object004
+    4300082: Plane005
+    4300084: Plane006
+    4300086: Box033
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

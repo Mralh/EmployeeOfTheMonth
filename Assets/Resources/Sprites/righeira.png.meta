@@ -1,13 +1,26 @@
 fileFormatVersion: 2
 guid: cc48e8de01f6c2648bec04d3c55d133e
-timeCreated: 1491846537
+timeCreated: 1491956601
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: righeira_0
+    21300002: righeira_1
+    21300004: righeira_2
+    21300006: righeira_3
+    21300008: righeira_4
+    21300010: righeira_5
+    21300012: righeira_6
+    21300014: righeira_7
+    21300016: righeira_8
+    21300018: righeira_9
+    21300020: righeira_10
+    21300022: righeira_11
+    21300024: righeira_12
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -30,11 +43,11 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,9 +55,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
@@ -58,9 +71,194 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: righeira_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 360
+        width: 134
+        height: 360
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.07899661}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_1
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 360
+        width: 131
+        height: 358
+      alignment: 9
+      pivot: {x: 0.5751268, y: 0.074811965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 360
+        width: 132
+        height: 360
+      alignment: 9
+      pivot: {x: 0.59941053, y: 0.08264168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_3
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 360
+        width: 133
+        height: 360
+      alignment: 9
+      pivot: {x: 0.67759305, y: 0.08264168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_4
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 361
+        width: 127
+        height: 359
+      alignment: 9
+      pivot: {x: 0.6033239, y: 0.06868597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_5
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 360
+        width: 130
+        height: 360
+      alignment: 9
+      pivot: {x: 0.46971717, y: 0.071706474}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_6
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 360
+        width: 161
+        height: 360
+      alignment: 9
+      pivot: {x: 0.32069084, y: 0.06988398}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_7
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 193
+        height: 352
+      alignment: 9
+      pivot: {x: 0.35042074, y: 0.078748114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_8
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 4
+        width: 210
+        height: 350
+      alignment: 9
+      pivot: {x: 0.38127556, y: 0.066968046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_9
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 10
+        width: 203
+        height: 346
+      alignment: 9
+      pivot: {x: 0.39010966, y: 0.04868792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_10
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 10
+        width: 188
+        height: 344
+      alignment: 9
+      pivot: {x: 0.39530167, y: 0.059415117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_11
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 10
+        width: 181
+        height: 346
+      alignment: 9
+      pivot: {x: 0.34915382, y: 0.06546135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: righeira_12
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 10
+        width: 184
+        height: 344
+      alignment: 9
+      pivot: {x: 0.2610905, y: 0.08039534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

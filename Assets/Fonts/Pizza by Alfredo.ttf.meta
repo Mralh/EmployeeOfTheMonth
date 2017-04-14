@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6171e02c67fc23b458f0e76b1d0e4792
+timeCreated: 1492121634
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pizza by Alfredo
+  fontNames:
+  - Pizza by Alfredo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

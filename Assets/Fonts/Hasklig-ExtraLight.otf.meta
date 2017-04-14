@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: f9b1ddab5658bc1479b1a855df8fb6ac
+timeCreated: 1492121636
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Hasklig
+  fontNames:
+  - Hasklig
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5cb90423a1c7ba046ab8e72136675a24, type: 3}
+  - {fileID: 12800000, guid: f6da67635da94284eb47ec284fcfd847, type: 3}
+  - {fileID: 12800000, guid: adddaf7765365f04487c4bc9e8a93b11, type: 3}
+  - {fileID: 12800000, guid: 9f56a578ff80b0441b6174dc8528970b, type: 3}
+  - {fileID: 12800000, guid: 02960fe8332e1e24694360db5524d43e, type: 3}
+  - {fileID: 12800000, guid: cd989c9950ba4ed489e1353777ce0d00, type: 3}
+  - {fileID: 12800000, guid: 046136c9029476d4b9684fb9b5ec2cc8, type: 3}
+  - {fileID: 12800000, guid: da2b051aee85602419735800dc876bd4, type: 3}
+  - {fileID: 12800000, guid: 66745d5a85934174cb928fb5c0f056a9, type: 3}
+  - {fileID: 12800000, guid: bd03d3ab5b2999b4685cf225bed94c24, type: 3}
+  - {fileID: 12800000, guid: a5fdb7cd6f47fcd47b16bb4cdcdd8190, type: 3}
+  - {fileID: 12800000, guid: c72af36e1f57bc049a256df64c03bade, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

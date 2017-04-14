@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 35014a45ecd830349a1b5a3ed7c8baf2
+timeCreated: 1463529265
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Circle34
+    100002: Circle35
+    100004: Circle36
+    100006: Ellipse01
+    100008: Ellipse02
+    100010: Ellipse03
+    100012: Ellipse04
+    100014: Ellipse05
+    100016: Ellipse06
+    100018: Ellipse07
+    100020: Ellipse08
+    100022: Ellipse09
+    100024: Ellipse10
+    100026: Ellipse11
+    100028: Ellipse12
+    100030: //RootNode
+    100032: Line01
+    100034: Line151
+    100036: Line159
+    100038: Line161
+    100040: Line162
+    100042: Line163
+    100044: Line164
+    400000: Circle34
+    400002: Circle35
+    400004: Circle36
+    400006: Ellipse01
+    400008: Ellipse02
+    400010: Ellipse03
+    400012: Ellipse04
+    400014: Ellipse05
+    400016: Ellipse06
+    400018: Ellipse07
+    400020: Ellipse08
+    400022: Ellipse09
+    400024: Ellipse10
+    400026: Ellipse11
+    400028: Ellipse12
+    400030: //RootNode
+    400032: Line01
+    400034: Line151
+    400036: Line159
+    400038: Line161
+    400040: Line162
+    400042: Line163
+    400044: Line164
+    2300000: Circle34
+    2300002: Circle35
+    2300004: Circle36
+    2300006: Ellipse01
+    2300008: Ellipse02
+    2300010: Ellipse03
+    2300012: Ellipse04
+    2300014: Ellipse05
+    2300016: Ellipse06
+    2300018: Ellipse07
+    2300020: Ellipse08
+    2300022: Ellipse09
+    2300024: Ellipse10
+    2300026: Ellipse11
+    2300028: Ellipse12
+    2300030: Line01
+    2300032: Line151
+    2300034: Line159
+    2300036: Line161
+    2300038: Line162
+    2300040: Line163
+    2300042: Line164
+    3300000: Circle34
+    3300002: Circle35
+    3300004: Circle36
+    3300006: Ellipse01
+    3300008: Ellipse02
+    3300010: Ellipse03
+    3300012: Ellipse04
+    3300014: Ellipse05
+    3300016: Ellipse06
+    3300018: Ellipse07
+    3300020: Ellipse08
+    3300022: Ellipse09
+    3300024: Ellipse10
+    3300026: Ellipse11
+    3300028: Ellipse12
+    3300030: Line01
+    3300032: Line151
+    3300034: Line159
+    3300036: Line161
+    3300038: Line162
+    3300040: Line163
+    3300042: Line164
+    4300000: Circle34
+    4300002: Circle35
+    4300004: Circle36
+    4300006: Ellipse01
+    4300008: Ellipse02
+    4300010: Ellipse03
+    4300012: Ellipse04
+    4300014: Ellipse05
+    4300016: Ellipse06
+    4300018: Ellipse07
+    4300020: Ellipse08
+    4300022: Ellipse09
+    4300024: Ellipse10
+    4300026: Ellipse11
+    4300028: Ellipse12
+    4300030: Line01
+    4300032: Line151
+    4300034: Line159
+    4300036: Line161
+    4300038: Line162
+    4300040: Line163
+    4300042: Line164
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

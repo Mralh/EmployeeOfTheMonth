@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: db91417767c69644caa8040210405617
+timeCreated: 1492121636
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ProggyTinyTTSZ
+  fontNames:
+  - ProggyTinyTTSZ
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
