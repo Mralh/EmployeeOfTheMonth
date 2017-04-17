@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddScoreOnPickup : MonoBehaviour {
+public class AddScoreOnPickup : MiniGameObject
+{
+    public int score = 1;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void OnGrabbed(GameObject hand)
+    {
+        base.OnGrabbed(hand);
+        getMiniGame().ChangeScore(0, score);
+    }
 }

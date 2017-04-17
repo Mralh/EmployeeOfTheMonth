@@ -122,7 +122,7 @@ public class ViveHand : MonoBehaviour
     /* --------------------
          HELPER METHODS
     ----------------------- */
-    void ReleaseGrab()
+    public void ReleaseGrab()
     {
         grabbedObject.GetComponent<MiniGameObject>().OnGrabRelease(gameObject);
         grabbedObject.GetComponent<Rigidbody>().useGravity = true;

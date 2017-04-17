@@ -12,6 +12,9 @@ public class MiniGameObject : MonoBehaviour
 
     public float holdDistance = 0.4f;
 
+    public bool grabbable = true;
+    public bool interactable = true;
+
 	public virtual void OnInteractPressed(GameObject hand)
     {
         interact = true;
@@ -40,6 +43,13 @@ public class MiniGameObject : MonoBehaviour
     public virtual void OnHandExitHover(GameObject hand)
     {
         hover = false;
+    }
+
+    public MiniGame getMiniGame()
+    {
+        GameObject manager = GameObject.Find("MGManager");
+        MiniGame g = manager.GetComponent<MiniGameManager>().currentGame;
+        return g;
     }
 
 }

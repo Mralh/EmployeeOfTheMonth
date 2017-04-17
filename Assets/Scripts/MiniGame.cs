@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGame : MonoBehaviour {
+public class MiniGame
+{
     public enum GameState { START, INPROGRESS, END, NULL };
-
+    public MiniGameManager manager;
     GameState state = GameState.NULL;
     public int timeLimit;
     public int timer = 0;
@@ -12,32 +13,52 @@ public class MiniGame : MonoBehaviour {
 
     int playerScores = 0;
 
-    int startTimer;
-    int startTimeLimit;
+    int startTimer = 0;
+    public int startTimeLimit = 240;
 
     int endTimer;
-    int endTimeLimit;
+    public int endTimeLimit;
 
     public string[] introMessages;
     public string[] successMessages;
     public string[] failureMessages;
+
+    public Player player;
+
+    public bool ready = false;
 	
+    public MiniGame(MiniGameManager mgr)
+    {
+        this.manager = mgr;
+    }
+
 	// Update is called once per frame
-	void FixedUpdate () {
+	public void FixedUpdate ()
+    {
+        player = manager.player;
+
+        Debug.Log(state + ", " + startTimeLimit + ", " + timeLimit + ", " + endTimeLimit);
+
         if (state != GameState.NULL)
             Tick();
+        else if (startTimer == 0)
+        {
+            OnTransitionIn();
+            ready = true;
+            return;
+        }
 
         //Start timer
         if (startTimer < startTimeLimit && state == GameState.START)
         {
             if (startTimer == 0)
             {
-                OnTransitionIn();
                 DisplayMessage(introMessages[Random.Range(0, introMessages.Length - 1)], startTimeLimit, 0);
             }
             startTimer++;
+            return;
         }
-        else
+        else if (state == GameState.START)
         {
             startTimer = 0;
             OnGameStart();
@@ -47,8 +68,11 @@ public class MiniGame : MonoBehaviour {
 
         //In progress timer
         if (timer < timeLimit && state == GameState.INPROGRESS)
+        {
             timer++;
-        else
+            return;
+        }
+        else if (state == GameState.INPROGRESS)
         {
             timer = 0;
             OnGameEnd();
@@ -62,8 +86,11 @@ public class MiniGame : MonoBehaviour {
 
         //End timer
         if (endTimer < endTimeLimit && state == GameState.END)
+        {
             endTimer++;
-        else
+            return;
+        }
+        else if (state == GameState.END)
         {
             endTimer = 0;
             OnTransitionOut();
@@ -77,7 +104,9 @@ public class MiniGame : MonoBehaviour {
     public virtual void OnGameEnd() { }
 
     public virtual void OnTransitionOut() { }
-    public virtual void OnTransitionIn() { }
+    public virtual void OnTransitionIn() {
+        state = GameState.START;
+    }
 
     public void ChangeScore(int playerID, int score)
     {
@@ -91,7 +120,7 @@ public class MiniGame : MonoBehaviour {
 
     public void DisplayMessage(string s, int timer, int dismissButton)
     {
-
+        player.displayMessage(s, timer);
     }
 
     public void NullState()
@@ -100,6 +129,8 @@ public class MiniGame : MonoBehaviour {
         timer = 0;
         endTimer = 0;
         state = GameState.NULL;
+        playerScores = 0;
+        ready = false;
     }
     
 }

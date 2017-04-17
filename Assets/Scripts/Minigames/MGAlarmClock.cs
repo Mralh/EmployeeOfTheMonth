@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MGAlarmClock : MiniGame
 {
+    public MGAlarmClock (MiniGameManager mgr) : base(mgr) { }
+
     public override void OnTransitionIn()
     {
         base.OnTransitionIn();
@@ -24,7 +26,7 @@ public class MGAlarmClock : MiniGame
     public override void OnTransitionOut()
     {
         base.OnTransitionOut();
-        GetComponent<MiniGameManager>().SelectNextGame();
-        Destroy(this);
+        manager.SelectNextGame();
+        base.NullState();
     }
 }
