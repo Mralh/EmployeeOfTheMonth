@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: 5369c04e4bc85b44d9dbdb6ff6984d3b
+timeCreated: 1492744130
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 40oz_beer
+    100002: balloon_main
+    100004: balloon_rippled_main
+    100006: baloon_string
+    100008: baloon_string_2
+    100010: cake_cake
+    100012: cake_candle
+    100014: cake_frosting
+    100016: champagne_bottle
+    100018: champagne_glass
+    100020: clown_horn_bulb
+    100022: clown_horn_main
+    100024: noise_maker_body
+    100026: noise_maker_handle
+    100028: party_popper_bottle
+    100030: party_popper_string
+    100032: //RootNode
+    100034: plate_large
+    100036: table
+    100038: vuvuzela
+    400000: 40oz_beer
+    400002: balloon_main
+    400004: balloon_rippled_main
+    400006: baloon_string
+    400008: baloon_string_2
+    400010: cake_cake
+    400012: cake_candle
+    400014: cake_frosting
+    400016: champagne_bottle
+    400018: champagne_glass
+    400020: clown_horn_bulb
+    400022: clown_horn_main
+    400024: noise_maker_body
+    400026: noise_maker_handle
+    400028: party_popper_bottle
+    400030: party_popper_string
+    400032: //RootNode
+    400034: plate_large
+    400036: table
+    400038: vuvuzela
+    2300000: 40oz_beer
+    2300002: balloon_main
+    2300004: balloon_rippled_main
+    2300006: baloon_string
+    2300008: baloon_string_2
+    2300010: cake_cake
+    2300012: cake_candle
+    2300014: cake_frosting
+    2300016: champagne_bottle
+    2300018: champagne_glass
+    2300020: clown_horn_bulb
+    2300022: clown_horn_main
+    2300024: noise_maker_body
+    2300026: noise_maker_handle
+    2300028: party_popper_bottle
+    2300030: party_popper_string
+    2300032: plate_large
+    2300034: table
+    2300036: vuvuzela
+    3300000: 40oz_beer
+    3300002: balloon_main
+    3300004: balloon_rippled_main
+    3300006: baloon_string
+    3300008: baloon_string_2
+    3300010: cake_cake
+    3300012: cake_candle
+    3300014: cake_frosting
+    3300016: champagne_bottle
+    3300018: champagne_glass
+    3300020: clown_horn_bulb
+    3300022: clown_horn_main
+    3300024: noise_maker_body
+    3300026: noise_maker_handle
+    3300028: party_popper_bottle
+    3300030: party_popper_string
+    3300032: plate_large
+    3300034: table
+    3300036: vuvuzela
+    4300000: 40oz_beer
+    4300002: balloon_main
+    4300004: balloon_rippled_main
+    4300006: baloon_string
+    4300008: baloon_string_2
+    4300010: cake_cake
+    4300012: cake_candle
+    4300014: cake_frosting
+    4300016: champagne_bottle
+    4300018: champagne_glass
+    4300020: clown_horn_bulb
+    4300022: clown_horn_main
+    4300024: noise_maker_body
+    4300026: noise_maker_handle
+    4300028: party_popper_bottle
+    4300030: party_popper_string
+    4300032: plate_large
+    4300034: table
+    4300036: vuvuzela
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.03
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
