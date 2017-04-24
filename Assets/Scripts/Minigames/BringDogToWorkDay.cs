@@ -28,8 +28,8 @@ public class BringDogToWorkDay : MiniGame
 
         //Messages
         base.introMessages = new string[] { "Bring your dog to work day !! !" };
-        base.failureMessages = new string[] { "The bad boy is still at large", "You tried", "FAILURE", "Mission failed, returning to base" };
-        base.successMessages = new string[] { "The good dogs can rest easy", "SUCCESS" };
+        base.failureMessages = new string[] { "The bad boy is still at large", "You tried", "FAILURE", "Mission failed, returning to base", "You have forsaken us all." };
+        base.successMessages = new string[] { "The good dogs can rest easy", "SUCCESS", "Good Boy" };
 
         //Base Game Objects + Lightpacks
         base.loadedObjects.Add(GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Lightpacks/Office/LP_DAY")));
@@ -39,7 +39,7 @@ public class BringDogToWorkDay : MiniGame
 
         //Dog spawners
         Transform spawnList = objectPath.transform.FindChild("SpawnList");
-        spawnPoints = new List<Transform>();
+        spawnPoints = new List<Transform>(); //Makes a list of possible transformations (Locations)?
         foreach (Transform child in spawnList)
         {
             if (child != spawnList)
