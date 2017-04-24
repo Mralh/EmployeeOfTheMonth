@@ -15,6 +15,22 @@ public class MiniGameObject : MonoBehaviour
     public bool grabbable = true;
     public bool interactable = true;
 
+    Vector3 scale;
+    public float scaleWhenHeld = 1;
+
+    void Start ()
+    {
+        scale = transform.localScale;
+    }
+
+    void FixedUpdate ()
+    {
+        if (grabbed)
+            transform.localScale = Vector3.Lerp(transform.localScale, scaleWhenHeld * scale, 5f * Time.deltaTime);
+        else
+            transform.localScale = Vector3.Lerp(transform.localScale, scale, 5f * Time.deltaTime);
+    }
+
 	public virtual void OnInteractPressed(GameObject hand)
     {
         interact = true;

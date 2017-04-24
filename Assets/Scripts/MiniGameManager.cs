@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MiniGameManager : MonoBehaviour
 {
+    public static MiniGameManager singleton;
     public List<MiniGame> homeGames = new List<MiniGame>();
     public List<MiniGame> officeGames = new List<MiniGame>();
     public List<MiniGame> factoryGames = new List<MiniGame>();
@@ -11,6 +13,8 @@ public class MiniGameManager : MonoBehaviour
     public List<MiniGame> commuteGames = new List<MiniGame>();
     public List<MiniGame> teacherGames = new List<MiniGame>();
     public List<MiniGame> transitions = new List<MiniGame>();
+
+    string currentScene;
 
 
     public enum GameType { Home, Office, Factory, Food, Commute, Teacher };
@@ -33,29 +37,43 @@ public class MiniGameManager : MonoBehaviour
 
     int loadTimer = 0;
     bool loading = false;
+    public bool sceneReady = true;
+    public float speedModifier = 1;
 
     void Start()
     {
         //Add home games
-        homeGames.Add(new PickupToWin(this));
+        homeGames.Add(new BringDogToWorkDay(this));
 
-        startNewDay();
+        SceneManager.sceneLoaded += setLoadedStatus;
+        MiniGameManager.singleton = this;
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            signalLoad();
+            startNewDay();
+        }
     }
 
     void FixedUpdate()
     {
         if (loading)
         {
-            if (loadTimer < 60)
+            if (loadTimer < 120)
                 loadTimer++;
             else
             {
                 loading = false;
+                loadTimer = 0;
             }
             return;
         }
 
-        if (currentGame != null)
+        if (currentGame != null && sceneReady)
         {
             currentGame.FixedUpdate();
             //Debug.Log("update");
@@ -67,20 +85,33 @@ public class MiniGameManager : MonoBehaviour
 
     public void SelectNextGame ()
     {
-        currentGame.NullState();
+        if (currentGame != null)
+            currentGame.NullState();
+
         currentGame = todaysGames.Dequeue();
         if (currentGame == null)
         {
             startNewDay();
         }
+        else
+        {
+            currentGame.ScenePrewarm();
+        }
+    }
+    public void ForceNextGame(MiniGame mg)
+    {
+        currentGame.NullState();
+        currentGame = mg;
+        currentGame.ScenePrewarm();
     }
 
     public void startNewDay()
     {
+        //signalLoad();
         Debug.Log("Start game");
         todaysGames.Clear();
         todaysGames.Enqueue(homeGames[0]);
-        currentGame = todaysGames.Dequeue();
+        SelectNextGame();
         return;
 
         int numHomeGamesPre = Random.Range(1, 2);
@@ -134,8 +165,6 @@ public class MiniGameManager : MonoBehaviour
         int n = aList.Count;
         for (int i = 0; i < n; i++)
         {
-            // NextDouble returns a random number between 0 and 1.
-            // ... It is equivalent to Math.random() in Java.
             int r = i + (int)(_random.NextDouble() * (n - i));
             myGO = aList[r];
             aList[r] = aList[i];
@@ -145,8 +174,51 @@ public class MiniGameManager : MonoBehaviour
         return aList;
     }
 
+    
+
     public void signalLoad()
     {
-        player.ToggleStatic();
+        if (!player.isStaticScreen)
+            player.ToggleStatic();
+        loading = true;
+    }
+
+    public void forceEndMinigame()
+    {
+        if (currentGame != null)
+        {
+            currentGame.timer = currentGame.timeLimit - 1;
+        }
+    }
+
+    public void RequestSceneChange(string scene)
+    {
+        if (!scene.Equals(currentScene))
+        {
+            sceneReady = false;
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            currentScene = scene;
+        }
+    }
+
+    public void SetPlayerPosition(Vector3 pos, float yAngle)
+    {
+        if (player.name.Equals("VR Player"))
+        {
+            player.transform.FindChild("[CameraRig]").position = pos;
+            /*player.transform.position = pos 
+                - new Vector3(player.eyeCamera.transform.parent.localPosition.x, 0, player.eyeCamera.transform.parent.localPosition.z);*/
+            //player.transform.eulerAngles = new Vector3(0, yAngle - player.eyeCamera.transform.parent.localEulerAngles.y, 0);
+        }
+        else
+        {
+            player.transform.position = pos;
+            player.transform.eulerAngles = new Vector3(0, yAngle, 0);
+        }
+    }
+
+    void setLoadedStatus(Scene s, LoadSceneMode lsm)
+    {
+        sceneReady = true;
     }
 }

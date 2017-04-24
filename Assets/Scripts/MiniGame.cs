@@ -26,6 +26,9 @@ public class MiniGame
     public Player player;
 
     public bool ready = false;
+
+    public List<GameObject> loadedObjects;
+    bool prewarmed = false;
 	
     public MiniGame(MiniGameManager mgr)
     {
@@ -35,9 +38,13 @@ public class MiniGame
 	// Update is called once per frame
 	public void FixedUpdate ()
     {
+
         player = manager.player;
 
         Debug.Log(state + ", " + startTimeLimit + ", " + timeLimit + ", " + endTimeLimit);
+
+        if (!manager.sceneReady)
+            return;
 
         if (state != GameState.NULL)
             Tick();
@@ -106,7 +113,9 @@ public class MiniGame
     public virtual void OnTransitionOut() { }
     public virtual void OnTransitionIn() {
         state = GameState.START;
+        loadedObjects = new List<GameObject>();
     }
+    public virtual void ScenePrewarm() { }
 
     public void ChangeScore(int playerID, int score)
     {
@@ -131,6 +140,11 @@ public class MiniGame
         state = GameState.NULL;
         playerScores = 0;
         ready = false;
+        foreach (GameObject g in loadedObjects)
+        {
+            GameObject.DestroyImmediate(g);
+        }
+        loadedObjects.Clear();
     }
     
 }

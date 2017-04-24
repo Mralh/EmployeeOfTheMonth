@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 6a9080050ab9a554294d3f4f56cf843b
+timeCreated: 1492811959
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Cylinder.001
+    100004: foreleg-lower-l
+    100006: foreleg-lower-r
+    100008: foreleg-upper-l
+    100010: foreleg-upper-r
+    100012: head
+    100014: head_end
+    100016: hindleg-l
+    100018: hindleg-r
+    100020: Hips
+    100022: //RootNode
+    100024: neck-1
+    100026: neck-2
+    100028: paw-front-l
+    100030: paw-front-l_end
+    100032: paw-front-r
+    100034: paw-front-r_end
+    100036: paw-hind-l
+    100038: paw-hind-l_end
+    100040: paw-hind-r
+    100042: paw-hind-r_end
+    100044: Plane
+    100046: shin-l
+    100048: shin-r
+    100050: shoulder-l
+    100052: shoulder-r
+    100054: spine-1
+    100056: spine-2
+    100058: spine-3
+    100060: tail-1
+    100062: tail-1_end
+    100064: tail-2
+    100066: tail-3
+    100068: thigh-l
+    100070: thigh-r
+    100072: wrist-l
+    100074: wrist-r
+    400000: Armature
+    400002: Cylinder.001
+    400004: foreleg-lower-l
+    400006: foreleg-lower-r
+    400008: foreleg-upper-l
+    400010: foreleg-upper-r
+    400012: head
+    400014: head_end
+    400016: hindleg-l
+    400018: hindleg-r
+    400020: Hips
+    400022: //RootNode
+    400024: neck-1
+    400026: neck-2
+    400028: paw-front-l
+    400030: paw-front-l_end
+    400032: paw-front-r
+    400034: paw-front-r_end
+    400036: paw-hind-l
+    400038: paw-hind-l_end
+    400040: paw-hind-r
+    400042: paw-hind-r_end
+    400044: Plane
+    400046: shin-l
+    400048: shin-r
+    400050: shoulder-l
+    400052: shoulder-r
+    400054: spine-1
+    400056: spine-2
+    400058: spine-3
+    400060: tail-1
+    400062: tail-1_end
+    400064: tail-2
+    400066: tail-3
+    400068: thigh-l
+    400070: thigh-r
+    400072: wrist-l
+    400074: wrist-r
+    2300000: Plane
+    3300000: Plane
+    4300000: Plane
+    4300002: Cylinder.001
+    9500000: //RootNode
+    13700000: Cylinder.001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

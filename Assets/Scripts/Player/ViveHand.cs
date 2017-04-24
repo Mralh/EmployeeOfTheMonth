@@ -124,10 +124,13 @@ public class ViveHand : MonoBehaviour
     ----------------------- */
     public void ReleaseGrab()
     {
-        grabbedObject.GetComponent<MiniGameObject>().OnGrabRelease(gameObject);
-        grabbedObject.GetComponent<Rigidbody>().useGravity = true;
-        if (grabbedObject.GetComponent<MiniGameObject>().equippable)
-            transform.FindChild("Model").gameObject.SetActive(true);
+        if (grabbedObject != null)
+        {
+            grabbedObject.GetComponent<MiniGameObject>().OnGrabRelease(gameObject);
+            grabbedObject.GetComponent<Rigidbody>().useGravity = true;
+            if (grabbedObject.GetComponent<MiniGameObject>().equippable)
+                transform.FindChild("Model").gameObject.SetActive(true);
+        }
 
         grabbedObject = null;
     }

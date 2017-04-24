@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public GameObject clock;
     public GameObject staticScreen;
     public GameObject eyeCamera;
+    public AudioSource bgm;
 
     public LayerMask staticScreenMask;
     public LayerMask regularMask;
@@ -57,5 +58,22 @@ public class Player : MonoBehaviour {
             handL.GetComponent<ViveHand>().ReleaseGrab();
             isStaticScreen = true;
         }
+    }
+
+    public void resumeBGM()
+    {
+        bgm.UnPause();
+    }
+
+    public void pauseBGM()
+    {
+        bgm.Pause();
+    }
+
+    public void playBGM(string source)
+    {
+        bgm.Stop();
+        bgm.clip = Resources.Load<AudioClip>("Sounds/Music/" + source);
+        bgm.Play();
     }
 }

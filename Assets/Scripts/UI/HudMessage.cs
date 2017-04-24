@@ -19,14 +19,14 @@ public class HudMessage : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (timer < messageTime - 30)
+        if (timer < messageTime - 20)
             GetComponent<RectTransform>().anchoredPosition3D = Vector3.Lerp(GetComponent<RectTransform>().anchoredPosition3D,
-                new Vector3(0, 325, 0),
-                8f * Time.deltaTime);
+                new Vector3(0, 500, 0),
+                10f * Time.deltaTime);
         else
             GetComponent<RectTransform>().anchoredPosition3D = Vector3.Lerp(GetComponent<RectTransform>().anchoredPosition3D,
                 new Vector3(0, -200, 0),
-                8f * Time.deltaTime);
+                10f * Time.deltaTime);
 
         if (timer < messageTime)
             timer++;

@@ -1,0 +1,24 @@
+# Blender3D MTL File: 
+# Material Count: 2
+newmtl RefRep.14_SH_initial_loader
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Tue_Dec_13_02-22-38_2005_2.png
+
+
+newmtl RefRep.13_SH_initial_loader.exe
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Tue_Dec_13_02-22-38_2005_1.png
+
+
