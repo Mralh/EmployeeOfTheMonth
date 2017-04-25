@@ -54,8 +54,10 @@ public class Player : MonoBehaviour {
         {
             eyeCamera.GetComponent<Camera>().cullingMask = staticScreenMask.value;
             staticScreen.SetActive(true);
-            handR.GetComponent<ViveHand>().ReleaseGrab();
-            handL.GetComponent<ViveHand>().ReleaseGrab();
+            if (handR != null)
+                handR.GetComponent<ViveHand>().ReleaseGrab();
+            if (handL != null)
+                handL.GetComponent<ViveHand>().ReleaseGrab();
             isStaticScreen = true;
         }
     }

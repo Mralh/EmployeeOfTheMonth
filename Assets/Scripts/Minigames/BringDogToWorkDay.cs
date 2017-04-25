@@ -81,7 +81,7 @@ public class BringDogToWorkDay : MiniGame
             }
         }
 
-        manager.SetPlayerPosition(new Vector3(0.09f, -0.004f, -5.174f), 0);
+        manager.SetPlayerPosition(new Vector3(-3.565f, 0f, -6.386f), 0);
     }
 
     public override void OnGameStart()

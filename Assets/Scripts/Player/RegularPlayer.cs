@@ -36,27 +36,49 @@ public class RegularPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (useInputPressed)
+            OnUsePressed();
+        if (useInputReleased)
+            OnUseReleased();
+
+        if (fireInputPressed)
+            OnFirePressed();
+        if (fireInputReleased)
+            OnFireReleased();
+
+        if (releaseInputPressed)
+            OnDisarmPressed();
+
         RaycastHit rh;
-        if (Physics.Raycast(fpcamera.transform.position + 0.1f*fpcamera.transform.forward, fpcamera.transform.forward, out rh, 20f))
+        if (Physics.Raycast(fpcamera.transform.position + 0.1f*fpcamera.transform.forward, fpcamera.transform.forward, out rh, 200f))
         {
-            lookLocation = rh.point + (0.01f * rh.normal);
-            //reticle.transform.localPosition = new Vector3(0, 0, rh.distance - 0.1f);
+            lookLocation = rh.point;
+            //reticle.transform.localPosition = new Vector3(0, 0, rh.distance - 0.01f);
             //reticle.transform.localScale = 0.03f * rh.distance * Vector3.one;
+        }
+        else
+        {
+            lookLocation = transform.position + fpcamera.transform.position + (fpcamera.transform.forward * 5);
         }
         
         //Grab hold behaviour
         if (grabbedObject != null)
         {
             Vector3 targetPos = fpcamera.transform.position
-                - (2*fpcamera.transform.right) - (2 * fpcamera.transform.up)
-                + (fpcamera.transform.forward * (grabbedObject.GetComponent<MiniGameObject>().holdDistance + 1));
+                + (fpcamera.transform.forward * (grabbedObject.GetComponent<MiniGameObject>().holdDistance + 0.4f));
+            //Debug.Log(targetPos);
             grabbedObject.GetComponent<Rigidbody>().useGravity = false;
             grabbedObject.transform.eulerAngles = transform.eulerAngles;
             Vector3 targetVel = targetPos - grabbedObject.transform.position;
-            float speed = Mathf.Clamp(100 * Mathf.Abs(targetVel.magnitude), 0, 200);
+            float speed = Mathf.Clamp(20 * Mathf.Abs(targetVel.magnitude), 0, 100);
             targetVel = speed * targetVel.normalized;
             grabbedObject.GetComponent<Rigidbody>().velocity = targetVel;
             grabbedObject.GetComponent<MiniGameObject>().OnHeld(gameObject);
+        }
+        
+        if (equippedObject != null)
+        {
+            equippedObject.transform.localEulerAngles = new Vector3(-50, 0, 0);
         }
 
         //Interact hold behaviour
@@ -69,6 +91,8 @@ public class RegularPlayer : MonoBehaviour
 
     void OnUsePressed()
     {
+        Debug.Log("USE");
+        useInputPressed = false;
         if (grabbedObject != null)
         {
             ReleaseGrab();
@@ -78,15 +102,24 @@ public class RegularPlayer : MonoBehaviour
         GameObject selectionTemp = GetObjectScan();
         if (selectionTemp == null)
             return;
-
+        Debug.Log(selectionTemp.name);
         if (selectionTemp.GetComponent<MiniGameObject>().grabbable)
         {
             if (selectionTemp.GetComponent<MiniGameObject>().equippable)
             {
                 equippedObject = selectionTemp;
                 equippedObject.transform.parent = fpcamera.transform;
+                equippedObject.transform.localPosition = new Vector3(0, -0.15f, 0.25f);
                 equippedObject.GetComponent<Rigidbody>().isKinematic = true;
-                equippedObject.GetComponent<Collider>().isTrigger = true;
+                equippedObject.GetComponent<Collider>().enabled = false;
+                
+                foreach (Transform t in equippedObject.transform)
+                {
+                    if (t.GetComponent<Collider>() != null && !t.GetComponent<Collider>().isTrigger)
+                    {
+                        t.GetComponent<Collider>().enabled = false;
+                    }
+                }
             }
             else
             {
@@ -101,7 +134,7 @@ public class RegularPlayer : MonoBehaviour
             selectedObject = selectionTemp;
             selectedObject.GetComponent<MiniGameObject>().OnInteractPressed(gameObject);
         }
-        useInputPressed = false;
+        
     }
     void OnUseReleased()
     {
@@ -110,10 +143,48 @@ public class RegularPlayer : MonoBehaviour
 
     void OnFirePressed()
     {
+        fireInputPressed = false;
+        if (grabbedObject != null)
+        {
+            grabbedObject.GetComponent<MiniGameObject>().OnGrabRelease(gameObject);
+            grabbedObject.GetComponent<Rigidbody>().useGravity = true;
+            grabbedObject.GetComponent<Rigidbody>().velocity = fpcamera.transform.forward * 6;
+
+            grabbedObject = null;
+            return;
+        }
+
+        if (equippedObject != null)
+        {
+            equippedObject.GetComponent<MiniGameObject>().OnInteractPressed(gameObject);
+        }
+
     }
     void OnFireReleased()
     {
 
+    }
+
+    void OnDisarmPressed()
+    {
+        releaseInputPressed = false;
+        if (equippedObject != null)
+        {
+            equippedObject.transform.parent = null;
+            equippedObject.GetComponent<MiniGameObject>().OnGrabRelease(gameObject);
+            equippedObject.GetComponent<Rigidbody>().useGravity = true;
+            equippedObject.GetComponent<Rigidbody>().velocity = fpcamera.transform.forward * 6;
+            equippedObject.GetComponent<Rigidbody>().isKinematic = false;
+            equippedObject.GetComponent<Collider>().enabled = true;
+            foreach (Transform t in equippedObject.transform)
+            {
+                if (t.GetComponent<Collider>() != null && !t.GetComponent<Collider>().isTrigger)
+                {
+                    t.GetComponent<Collider>().enabled = true;
+                }
+            }
+            equippedObject = null;
+        }
     }
 
     void ReleaseGrab()
