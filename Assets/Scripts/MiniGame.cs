@@ -6,7 +6,7 @@ public class MiniGame
 {
     public enum GameState { START, INPROGRESS, END, NULL };
     public MiniGameManager manager;
-    GameState state = GameState.NULL;
+    public GameState state = GameState.NULL;
     public int timeLimit;
     public int timer = 0;
     public int scoreRequired = 0;

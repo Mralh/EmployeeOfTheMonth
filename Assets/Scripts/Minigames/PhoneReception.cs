@@ -18,7 +18,7 @@ public class PhoneReception : MiniGame {
     public override void OnTransitionIn()
     {
         base.OnTransitionIn();
-
+        manager.RequestNormalBGM();
         base.scoreRequired = 1;
         //Timers
         base.startTimeLimit = 5 * 60;
@@ -41,10 +41,11 @@ public class PhoneReception : MiniGame {
         base.loadedObjects.Add(trigger);
         trigger.transform.position = spawnList.GetChild(Random.Range(0, spawnList.childCount - 1)).position;
 
-        manager.SetPlayerPosition(new Vector3(0.09f, -0.004f, -5.174f), 0);
+        manager.SetPlayerPosition(new Vector3(-3.565f, 0f, -6.386f), 0);
 
-        GameObject phone = objectPack.transform.FindChild("walruS7").gameObject;
-
+        GameObject phone = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "walruS7"), new Vector3(-3.85f, 2f, -2.124f), Quaternion.identity);
+        loadedObjects.Add(phone);
+        phone.GetComponent<Phone>().trigger = trigger;
     }
 
     public override void OnGameStart()

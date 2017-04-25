@@ -27,6 +27,15 @@ public class Player : MonoBehaviour {
         setClock(0, 1);
     }
 
+    void FixedUpdate ()
+    {
+        if (MiniGameManager.singleton.currentGame != null && 
+            MiniGameManager.singleton.currentGame.state == MiniGame.GameState.INPROGRESS)
+            clock.SetActive(true);
+        else
+            clock.SetActive(false);
+    }
+
     public void displayMessage(string s, int t)
     {
         GameObject hudMessage = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/UI/Message"), HUD.transform);

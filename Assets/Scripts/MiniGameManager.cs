@@ -29,7 +29,10 @@ public class MiniGameManager : MonoBehaviour
     public int totalPlayerFailures = 0;
     public int totalPlayerSuccesses = 0;
 
-    public int countMinigamesDay = 0;
+    public int day = 0;
+    int days = 5;
+
+    public List<string>[] playlist;
 
     public Player player;
 
@@ -43,10 +46,22 @@ public class MiniGameManager : MonoBehaviour
     void Start()
     {
         //Add home games
+        homeGames.Add(new PhoneReception(this));
         homeGames.Add(new BringDogToWorkDay(this));
-
         SceneManager.sceneLoaded += setLoadedStatus;
         MiniGameManager.singleton = this;
+
+        playlist = new List<string>[days];
+        for (int i = 0; i < days; i++)
+            playlist[i] = new List<string>();
+        playlist[0].Add("infade");
+        playlist[0].Add("simpleman");
+        playlist[1].Add("creep");
+        playlist[1].Add("simpleman");
+        playlist[2].Add("autopiliot");
+        playlist[3].Add("2p2e5");
+        playlist[4].Add("dofearthereaper");
+        playlist[4].Add("2p2e5");
     }
 
 
@@ -88,14 +103,15 @@ public class MiniGameManager : MonoBehaviour
         if (currentGame != null)
             currentGame.NullState();
 
-        currentGame = todaysGames.Dequeue();
-        if (currentGame == null)
+        if (todaysGames.Count >= 1)
         {
-            startNewDay();
+            currentGame = todaysGames.Dequeue();
+            currentGame.ScenePrewarm();
+            speedModifier += 0.02f;
         }
         else
         {
-            currentGame.ScenePrewarm();
+            startNewDay();
         }
     }
     public void ForceNextGame(MiniGame mg)
@@ -108,9 +124,15 @@ public class MiniGameManager : MonoBehaviour
     public void startNewDay()
     {
         //signalLoad();
+        if (day < days)
+            day++;
+        speedModifier += 0.1f;
         Debug.Log("Start game");
         todaysGames.Clear();
+        homeGames = shuffle(homeGames);
         todaysGames.Enqueue(homeGames[0]);
+        todaysGames.Enqueue(homeGames[1]);
+
         SelectNextGame();
         return;
 
@@ -220,5 +242,11 @@ public class MiniGameManager : MonoBehaviour
     void setLoadedStatus(Scene s, LoadSceneMode lsm)
     {
         sceneReady = true;
+    }
+
+    public void RequestNormalBGM()
+    {
+        if (player.bgm.clip == null || !playlist[day - 1].Contains(player.bgm.clip.name))
+            player.playBGM(playlist[day - 1][Random.Range(0, playlist[day - 1].Count - 1)]);
     }
 }
