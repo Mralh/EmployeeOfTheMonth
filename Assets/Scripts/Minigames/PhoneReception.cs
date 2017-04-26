@@ -59,4 +59,9 @@ public class PhoneReception : MiniGame {
         manager.signalLoad();
         manager.SelectNextGame();
     }
+    public override void Tick()
+    {
+        if (AllDone())
+            manager.forceEndMinigame();
+    }
 }

@@ -119,7 +119,8 @@ public class MiniGame
 
     public void ChangeScore(int playerID, int score)
     {
-        playerScores += score;
+        if (state == GameState.INPROGRESS || state == GameState.START)
+            playerScores += score;
     }
     
     public void ResetScore(int playerID)
@@ -145,6 +146,11 @@ public class MiniGame
             GameObject.DestroyImmediate(g);
         }
         loadedObjects.Clear();
+    }
+
+    public bool AllDone()
+    {
+        return (state == GameState.INPROGRESS && playerScores >= scoreRequired);
     }
     
 }

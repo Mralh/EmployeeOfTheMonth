@@ -207,7 +207,7 @@ public class MiniGameManager : MonoBehaviour
 
     public void forceEndMinigame()
     {
-        if (currentGame != null)
+        if (currentGame != null && currentGame.timer < currentGame.timeLimit - 1)
         {
             currentGame.timer = currentGame.timeLimit - 1;
         }
