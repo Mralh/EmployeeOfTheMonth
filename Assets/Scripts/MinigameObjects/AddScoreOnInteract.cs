@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddScoreOnInteract : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class AddScoreOnInteract : MiniGameObject
+{
+    public int score = 1;
+    public override void OnInteractPressed(GameObject hand)
+    {
+        base.OnInteractPressed(hand);
+        MiniGameManager.singleton.currentGame.ChangeScore(0, score);
+    }
 }

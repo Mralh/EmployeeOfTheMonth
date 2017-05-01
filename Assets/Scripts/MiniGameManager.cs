@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class MiniGameManager : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class MiniGameManager : MonoBehaviour
         //Add home games
         homeGames.Add(new PhoneReception(this));
         homeGames.Add(new BringDogToWorkDay(this));
+        homeGames.Add(new CloseElevator(this));
         SceneManager.sceneLoaded += setLoadedStatus;
         MiniGameManager.singleton = this;
 
@@ -130,8 +132,8 @@ public class MiniGameManager : MonoBehaviour
         Debug.Log("Start game");
         todaysGames.Clear();
         homeGames = shuffle(homeGames);
-        todaysGames.Enqueue(homeGames[0]);
-        todaysGames.Enqueue(homeGames[1]);
+        foreach (MiniGame g in homeGames)
+            todaysGames.Enqueue(g);
 
         SelectNextGame();
         return;
@@ -227,15 +229,16 @@ public class MiniGameManager : MonoBehaviour
     {
         if (player.name.Equals("VR Player"))
         {
+            player.transform.FindChild("[CameraRig]").eulerAngles = new Vector3(0, yAngle - player.eyeCamera.transform.parent.localEulerAngles.y, 0);
             player.transform.FindChild("[CameraRig]").position = pos;
-            /*player.transform.position = pos 
-                - new Vector3(player.eyeCamera.transform.parent.localPosition.x, 0, player.eyeCamera.transform.parent.localPosition.z);*/
-            //player.transform.eulerAngles = new Vector3(0, yAngle - player.eyeCamera.transform.parent.localEulerAngles.y, 0);
+            player.transform.FindChild("[CameraRig]").position = pos 
+                - new Vector3(player.eyeCamera.transform.parent.localPosition.x, 0, player.eyeCamera.transform.parent.localPosition.z);
+            //
         }
         else
         {
             player.transform.position = pos;
-            player.transform.eulerAngles = new Vector3(0, yAngle, 0);
+            player.GetComponent<FirstPersonController>().rotate(yAngle);
         }
     }
 

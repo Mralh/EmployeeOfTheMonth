@@ -11,7 +11,7 @@ public class MiniGame
     public int timer = 0;
     public int scoreRequired = 0;
 
-    int playerScores = 0;
+    protected int playerScores = 0;
 
     int startTimer = 0;
     public int startTimeLimit = 240;

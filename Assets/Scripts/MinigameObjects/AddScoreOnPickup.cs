@@ -10,5 +10,6 @@ public class AddScoreOnPickup : MiniGameObject
     {
         base.OnGrabbed(hand);
         getMiniGame().ChangeScore(0, score);
+
     }
 }

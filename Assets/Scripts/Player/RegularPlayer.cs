@@ -138,7 +138,13 @@ public class RegularPlayer : MonoBehaviour
     }
     void OnUseReleased()
     {
-
+        useInputReleased = false;
+        if (selectedObject != null)
+        {
+            selectedObject.GetComponent<MiniGameObject>().OnInteractReleased(gameObject);
+            selectedObject = null;
+        }
+        
     }
 
     void OnFirePressed()
@@ -211,9 +217,9 @@ public class RegularPlayer : MonoBehaviour
         GameObject selectionTemp = null;
         foreach (RaycastHit hits in objects)
         {
-            if (hits.transform.parent == null
-                    && hits.collider.gameObject.GetComponent<MiniGameObject>() != null
-                    && hits.collider.gameObject.GetComponent<Rigidbody>() != null
+            if (hits.collider.gameObject.GetComponent<MiniGameObject>() != null
+                    && ((hits.transform.parent == null && hits.collider.gameObject.GetComponent<Rigidbody>() != null) 
+                        || !hits.collider.gameObject.GetComponent<MiniGameObject>().grabbable)
                     && hits.distance < minDist)
             {
                 minDist = hits.distance;
