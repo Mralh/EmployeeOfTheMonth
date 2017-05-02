@@ -30,14 +30,14 @@ Shader "Hidden/LensAberrations"
                 return color;
             }
 
-            float4 _DistCenterScale;
-            float3 _DistAmount;
+            half4 _DistCenterScale;
+            half3 _DistAmount;
 
             half2 distort(half2 uv)
             {
                 uv = (uv - 0.5) * _DistAmount.z + 0.5;
                 half2 ruv = _DistCenterScale.zw * (uv - 0.5 - _DistCenterScale.xy);
-                half ru = length(float2(ruv));
+                half ru = length(ruv);
 
                 #if DISTORT
 

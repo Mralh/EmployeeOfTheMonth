@@ -50,6 +50,7 @@ public class MiniGameManager : MonoBehaviour
         homeGames.Add(new PhoneReception(this));
         homeGames.Add(new BringDogToWorkDay(this));
         homeGames.Add(new CloseElevator(this));
+        homeGames.Add(new BallPit(this));
         SceneManager.sceneLoaded += setLoadedStatus;
         MiniGameManager.singleton = this;
 

@@ -154,7 +154,7 @@ public class RegularPlayer : MonoBehaviour
         {
             grabbedObject.GetComponent<MiniGameObject>().OnGrabRelease(gameObject);
             grabbedObject.GetComponent<Rigidbody>().useGravity = true;
-            grabbedObject.GetComponent<Rigidbody>().velocity = fpcamera.transform.forward * 6;
+            grabbedObject.GetComponent<Rigidbody>().velocity = fpcamera.transform.forward * 15;
 
             grabbedObject = null;
             return;

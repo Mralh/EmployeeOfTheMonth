@@ -50,12 +50,6 @@ namespace UnityStandardAssets.CinematicEffects
             [Tooltip("Reduces flashing noise with an additional filter.")]
             public bool antiFlicker;
 
-            [Tooltip("Dirtiness texture to add smudges or dust to the lens.")]
-            public Texture dirtTexture;
-
-            [Min(0f), Tooltip("Amount of lens dirtiness.")]
-            public float dirtIntensity;
-
             public static Settings defaultSettings
             {
                 get
@@ -67,9 +61,7 @@ namespace UnityStandardAssets.CinematicEffects
                         radius = 2.0f,
                         intensity = 0.7f,
                         highQuality = true,
-                        antiFlicker = false,
-                        dirtTexture = null,
-                        dirtIntensity = 2.5f
+                        antiFlicker = false
                     };
                     return settings;
                 }
@@ -118,27 +110,6 @@ namespace UnityStandardAssets.CinematicEffects
         RenderTexture[] m_blurBuffer1 = new RenderTexture[kMaxIterations];
         RenderTexture[] m_blurBuffer2 = new RenderTexture[kMaxIterations];
 
-        int m_Threshold;
-        int m_Curve;
-        int m_PrefilterOffs;
-        int m_SampleScale;
-        int m_Intensity;
-        int m_DirtTex;
-        int m_DirtIntensity;
-        int m_BaseTex;
-
-        private void Awake()
-        {
-            m_Threshold = Shader.PropertyToID("_Threshold");
-            m_Curve = Shader.PropertyToID("_Curve");
-            m_PrefilterOffs = Shader.PropertyToID("_PrefilterOffs");
-            m_SampleScale = Shader.PropertyToID("_SampleScale");
-            m_Intensity = Shader.PropertyToID("_Intensity");
-            m_DirtTex = Shader.PropertyToID("_DirtTex");
-            m_DirtIntensity = Shader.PropertyToID("_DirtIntensity");
-            m_BaseTex = Shader.PropertyToID("_BaseTex");
-        }
-
         private void OnEnable()
         {
             if (!ImageEffectHelper.IsSupported(shader, true, false, this))
@@ -178,25 +149,17 @@ namespace UnityStandardAssets.CinematicEffects
 
             // update the shader properties
             var threshold = settings.thresholdLinear;
-            material.SetFloat(m_Threshold, threshold);
+            material.SetFloat("_Threshold", threshold);
 
             var knee = threshold * settings.softKnee + 1e-5f;
             var curve = new Vector3(threshold - knee, knee * 2, 0.25f / knee);
-            material.SetVector(m_Curve, curve);
+            material.SetVector("_Curve", curve);
 
             var pfo = !settings.highQuality && settings.antiFlicker;
-            material.SetFloat(m_PrefilterOffs, pfo ? -0.5f : 0.0f);
+            material.SetFloat("_PrefilterOffs", pfo ? -0.5f : 0.0f);
 
-            material.SetFloat(m_SampleScale, 0.5f + logh - logh_i);
-            material.SetFloat(m_Intensity, Mathf.Max(0.0f, settings.intensity));
-
-            bool useDirtTexture = false;
-            if (settings.dirtTexture != null)
-            {
-                material.SetTexture(m_DirtTex, settings.dirtTexture);
-                material.SetFloat(m_DirtIntensity, settings.dirtIntensity);
-                useDirtTexture = true;
-            }
+            material.SetFloat("_SampleScale", 0.5f + logh - logh_i);
+            material.SetFloat("_Intensity", Mathf.Max(0.0f, settings.intensity));
 
             // prefilter pass
             var prefiltered = RenderTexture.GetTemporary(tw, th, 0, rtFormat);
@@ -215,18 +178,15 @@ namespace UnityStandardAssets.CinematicEffects
             for (var level = iterations - 2; level >= 0; level--)
             {
                 var basetex = m_blurBuffer1[level];
-                material.SetTexture(m_BaseTex, basetex);
+                material.SetTexture("_BaseTex", basetex);
                 m_blurBuffer2[level] = RenderTexture.GetTemporary(basetex.width, basetex.height, 0, rtFormat);
                 Graphics.Blit(last, m_blurBuffer2[level], material, settings.highQuality ? 6 : 5);
                 last = m_blurBuffer2[level];
             }
 
             // finish process
-            int pass = useDirtTexture ? 9 : 7;
-            pass += settings.highQuality ? 1 : 0;
-
-            material.SetTexture(m_BaseTex, source);
-            Graphics.Blit(last, destination, material, pass);
+            material.SetTexture("_BaseTex", source);
+            Graphics.Blit(last, destination, material, settings.highQuality ? 8 : 7);
 
             // release the temporary buffers
             for (var i = 0; i < kMaxIterations; i++)
