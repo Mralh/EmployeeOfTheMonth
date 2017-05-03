@@ -7,6 +7,7 @@ public class StartButton : MiniGameObject
     public override void OnInteractPressed(GameObject hand)
     {
         base.OnInteractPressed(hand);
+        MiniGameManager.singleton.signalLoad();
         MiniGameManager.singleton.startNewDay();
     }
 }
