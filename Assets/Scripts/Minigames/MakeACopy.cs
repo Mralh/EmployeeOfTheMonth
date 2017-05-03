@@ -83,7 +83,7 @@ public class MakeACopy : MiniGame {
         base.loadedObjects.Add(Button3Text);
 
 
-        manager.SetPlayerPosition(new Vector3(-3.565f, 0f, -6.386f), 0);
+        manager.SetPlayerPosition(new Vector3(0.725f, 0f, 3.051f), 0);
 
     }
 
