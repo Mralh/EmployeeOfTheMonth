@@ -51,6 +51,7 @@ public class MiniGameManager : MonoBehaviour
         homeGames.Add(new BringDogToWorkDay(this));
         homeGames.Add(new CloseElevator(this));
         homeGames.Add(new BallPit(this));
+        homeGames.Add(new PopQuiz(this));
         SceneManager.sceneLoaded += setLoadedStatus;
         MiniGameManager.singleton = this;
 
@@ -94,6 +95,19 @@ public class MiniGameManager : MonoBehaviour
         if (currentGame != null && sceneReady)
         {
             currentGame.FixedUpdate();
+            if (currentGame.state == MiniGame.GameState.INPROGRESS)
+            {
+                if (currentGame.timer == currentGame.timeLimit - (currentGame.timeLimit / 6))
+                    AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Sounds/1"), player.eyeCamera.transform.position);
+                else if (currentGame.timer == currentGame.timeLimit - 2*(currentGame.timeLimit / 6))
+                    AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Sounds/2"), player.eyeCamera.transform.position);
+                else if (currentGame.timer == currentGame.timeLimit - 3 * (currentGame.timeLimit / 6))
+                    AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Sounds/3"), player.eyeCamera.transform.position);
+                else if (currentGame.timer == currentGame.timeLimit - 4 * (currentGame.timeLimit / 6))
+                    AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Sounds/4"), player.eyeCamera.transform.position);
+                else if (currentGame.timer == currentGame.timeLimit - 5 * (currentGame.timeLimit / 6))
+                    AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Sounds/5"), player.eyeCamera.transform.position);
+            }
             //Debug.Log("update");
             player.setClock(currentGame.timer, currentGame.timeLimit);
             if (player.isStaticScreen && currentGame.ready)
