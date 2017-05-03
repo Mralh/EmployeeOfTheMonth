@@ -10,6 +10,8 @@ public class MakeACopy : MiniGame {
 
     List<string> selectedButtonTexts = new List<string> { "Make a Copy" };
 
+    GameObject objectPack;
+
     public MakeACopy(MiniGameManager mg) : base(mg) { }
 
     public override void ScenePrewarm()
@@ -24,9 +26,9 @@ public class MakeACopy : MiniGame {
         manager.RequestNormalBGM();
         base.scoreRequired = 1;
         //Timers
-        base.startTimeLimit = 5 * 60;
-        base.endTimeLimit = 5 * 60;
-        base.timeLimit = (int)((float)(20 * 60) / manager.speedModifier);
+        base.startTimeLimit = 3 * 60;
+        base.endTimeLimit = 2 * 60;
+        base.timeLimit = (int)((float)(5 * 60) / manager.speedModifier);
 
         //Messages
         base.introMessages = new string[] { "Make a Copy!" };
@@ -35,15 +37,15 @@ public class MakeACopy : MiniGame {
 
         //Base Game Objects + Lightpacks
         base.loadedObjects.Add(GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Lightpacks/Office/LP_DAY")));
-        GameObject objectPack = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "GameObjectCopy"));
+        objectPack = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "GameObjectCopy"));
         objectPack.name = "GameObjectCopy";
         base.loadedObjects.Add(objectPack);
 
         Transform spawnList = objectPack.transform.FindChild("SpawnList");
-        GameObject copier = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Copier"));
-        base.loadedObjects.Add(copier);
+        //GameObject copier = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Copier"));
+        //base.loadedObjects.Add(copier);
 
-        copier.transform.position = spawnList.GetChild(Random.Range(0, spawnList.childCount - 1)).position;
+        //copier.transform.position = spawnList.GetChild(Random.Range(0, spawnList.childCount - 1)).position;
 
         List<string> wrongButtonTexts = new List<string> { "Bomb the Russians", "Buy a Car", "Make a Kopy", "Okapi", "Fire Jeff", "Tune Radio", "Sell House on eBay", "Make a Coopy", "Quit Job", "Maek a Copy", "Swear at Copier", "Forgive your wife", "Not Not Not Copy" };
 
@@ -54,21 +56,26 @@ public class MakeACopy : MiniGame {
         }
 
         //Add the score update to the correct button
-        GameObject Button1 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button1"));
+        GameObject Button1 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button"), new Vector3(1.305f, 0.856f, 2.086f), Quaternion.Euler(45,0,0));
         Button1.AddComponent<AddScoreOnInteract>();
         Button1.GetComponent<AddScoreOnInteract>().score = 1;
+        Button1.GetComponent<AddScoreOnInteract>().effect = true;
+        Button1.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[0];
         base.loadedObjects.Add(Button1);
 
-        GameObject Button2 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button2"));
+        GameObject Button2 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button"), new Vector3(1.049f, 0.856f, 2.086f), Quaternion.Euler(45, 0, 0));
         Button2.AddComponent<AddScoreOnInteract>();
-        Button1.GetComponent<AddScoreOnInteract>().score = -1;
+        Button2.GetComponent<AddScoreOnInteract>().score = -1;
+        Button2.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[1];
         base.loadedObjects.Add(Button1);
 
-        GameObject Button3 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button3"));
+        GameObject Button3 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button"), new Vector3(0.775f, 0.856f, 2.086f), Quaternion.Euler(45, 0, 0));
         Button3.AddComponent<AddScoreOnInteract>();
         Button3.GetComponent<AddScoreOnInteract>().score = -1;
+        Button3.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[2];
         base.loadedObjects.Add(Button1);
 
+        /*
         //Need to set all the texts of the buttons here
 
         GameObject Button1Text = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button1Text"));
@@ -81,7 +88,7 @@ public class MakeACopy : MiniGame {
 
         GameObject Button3Text = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button3Text"));
         Button3Text.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[2];
-        base.loadedObjects.Add(Button3Text);
+        base.loadedObjects.Add(Button3Text);*/
 
 
         manager.SetPlayerPosition(new Vector3(0.725f, 0f, 3.051f), 0);
@@ -107,13 +114,16 @@ public class MakeACopy : MiniGame {
             manager.forceEndMinigame();
 }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void OnGameEnd()
+    {
+        base.OnGameEnd();
+        if (base.playerScores < scoreRequired)
+            base.loadedObjects.Add(GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Explosion"), new Vector3(1.049f, 0.856f, 2.086f), Quaternion.identity));
+        else
+        {
+            GameObject copy = GameObject.Instantiate(objectPack.transform.FindChild("banana").gameObject, new Vector3(0.545f, 1.371f, 1.564f), Quaternion.identity);
+            copy.GetComponent<Rigidbody>().velocity = new Vector3(-2, 3.5f, 0);
+            base.loadedObjects.Add(copy);
+        }
+    }
 }

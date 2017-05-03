@@ -52,6 +52,7 @@ public class MiniGameManager : MonoBehaviour
         homeGames.Add(new CloseElevator(this));
         homeGames.Add(new BallPit(this));
         homeGames.Add(new PopQuiz(this));
+        homeGames.Add(new MakeACopy(this));
         SceneManager.sceneLoaded += setLoadedStatus;
         MiniGameManager.singleton = this;
 

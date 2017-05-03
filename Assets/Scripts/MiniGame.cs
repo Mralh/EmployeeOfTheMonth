@@ -85,9 +85,9 @@ public class MiniGame
             OnGameEnd();
             state = GameState.END;
             if (playerScores >= scoreRequired)
-                DisplayMessage(successMessages[Random.Range(0, successMessages.Length - 1)], endTimeLimit, 0);
+                DisplayMessage(successMessages[Random.Range(0, successMessages.Length - 1)], endTimeLimit + 20, 0);
             else
-                DisplayMessage(failureMessages[Random.Range(0, failureMessages.Length - 1)], endTimeLimit, 0);
+                DisplayMessage(failureMessages[Random.Range(0, failureMessages.Length - 1)], endTimeLimit + 20, 0);
             return;
         }
 
