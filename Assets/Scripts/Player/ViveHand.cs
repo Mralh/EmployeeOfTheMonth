@@ -142,9 +142,9 @@ public class ViveHand : MonoBehaviour
         GameObject selectionTemp = null;
         foreach (RaycastHit hits in objects)
         {
-            if (hits.transform.parent == null
-                    && hits.collider.gameObject.GetComponent<MiniGameObject>() != null
-                    && hits.collider.gameObject.GetComponent<Rigidbody>() != null
+            if (hits.collider.gameObject.GetComponent<MiniGameObject>() != null
+                    && ((hits.transform.parent == null && hits.collider.gameObject.GetComponent<Rigidbody>() != null)
+                        || !hits.collider.gameObject.GetComponent<MiniGameObject>().grabbable)
                     && hits.distance < minDist)
             {
                 minDist = hits.distance;

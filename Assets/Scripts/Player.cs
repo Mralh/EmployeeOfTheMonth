@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
 
     public bool isStaticScreen = false;
 
+    GameObject message;
+
     int tTest = 0;
 
     void Start ()
@@ -38,11 +40,14 @@ public class Player : MonoBehaviour {
 
     public void displayMessage(string s, int t)
     {
+        if (message != null)
+            Destroy(message);
         GameObject hudMessage = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/UI/Message"), HUD.transform);
         hudMessage.GetComponent<RectTransform>().localScale = Vector3.one;
         hudMessage.GetComponent<RectTransform>().localEulerAngles = Vector3.zero;
         hudMessage.GetComponent<Text>().text = s;
         hudMessage.GetComponent<HudMessage>().messageTime = t;
+        message = hudMessage;
     }
 
     public void setClock(int timer, int baseTime)

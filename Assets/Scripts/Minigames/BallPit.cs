@@ -25,7 +25,7 @@ public class BallPit : MiniGame
         //Timers
         base.startTimeLimit = 2 * 60;
         base.endTimeLimit = 3 * 60;
-        base.timeLimit = (int)((float)(16 * 60) / manager.speedModifier);
+        base.timeLimit = (int)((float)(20 * 60) / manager.speedModifier);
 
         //Messages
         base.introMessages = new string[] { "It's your son's Birthday!" };
@@ -66,7 +66,7 @@ public class BallPit : MiniGame
             }
         }
 
-        manager.SetPlayerPosition(new Vector3(0, 0f, 2), 0);
+        manager.SetPlayerPosition(new Vector3(0, 0f, 1), 180);
     }
 
     public override void OnGameStart()

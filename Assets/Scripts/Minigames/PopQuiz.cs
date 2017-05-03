@@ -19,13 +19,17 @@ public class PopQuiz : MiniGame {
     public override void OnTransitionIn()
     {
         base.OnTransitionIn();
-        manager.player.playBGM("quiztime");
+        float r = Random.Range(0f, 1f);
+        if (r <= 0.5f)
+            manager.player.playBGM("quiztime");
+        else
+            manager.player.playBGM("eb");
 
         base.scoreRequired = 1;
         //Timers
         base.startTimeLimit = 2 * 60;
         base.endTimeLimit = 3 * 60;
-        base.timeLimit = (int)((float)(7 * 60) / manager.speedModifier);
+        base.timeLimit = (int)((float)(20 * 60) / manager.speedModifier);
 
         //Messages
         base.introMessages = new string[] { "POP QUIZ" };
@@ -37,11 +41,11 @@ public class PopQuiz : MiniGame {
         objectPack.name = "ObjectPack";
         base.loadedObjects.Add(objectPack);
 
-        GameObject quiz = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "QUIZ" + Random.Range(1, 1)));
+        GameObject quiz = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "QUIZ" + Random.Range(1, 7)));
         base.loadedObjects.Add(quiz);
 
 
-        manager.SetPlayerPosition(new Vector3(0.36f, 0.0564f, 3.893f), 0);
+        manager.SetPlayerPosition(new Vector3(0.36f, 0.0564f, 3f), 180);
     }
 
     public override void OnGameStart()

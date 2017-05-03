@@ -22,9 +22,9 @@ public class CloseElevator : MiniGame
         GameObject.Find("Elevator").GetComponent<ElevatorControls>().OpenDoor();
         base.scoreRequired = 25;
 
-        base.startTimeLimit = 2 * 60;
+        base.startTimeLimit = 1 * 60;
         base.endTimeLimit = 3 * 60;
-        base.timeLimit = (int)((float)(10 * 60) / manager.speedModifier);
+        base.timeLimit = (int)((float)(20 * 60) / manager.speedModifier);
 
         base.introMessages = new string[] { "" };
         base.failureMessages = new string[] { "Too bad" };
@@ -39,7 +39,7 @@ public class CloseElevator : MiniGame
             new Vector3(0, 0, 8 / (10f / manager.speedModifier));
 
 
-        base.DisplayMessage("Close the Elevator!", 5 * 60, 0);
+        
 
         manager.SetPlayerPosition(objectPack.transform.FindChild("spawnpoint").position, 180);
         
@@ -63,6 +63,10 @@ public class CloseElevator : MiniGame
         if (base.playerScores < 0)
             manager.forceEndMinigame();
     }
-
+    public override void OnGameStart()
+    {
+        base.OnGameStart();
+        base.DisplayMessage("Close the Elevator!", 5 * 60, 0);
+    }
 
 }

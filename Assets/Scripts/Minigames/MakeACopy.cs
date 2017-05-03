@@ -27,7 +27,7 @@ public class MakeACopy : MiniGame {
         base.scoreRequired = 1;
         //Timers
         base.startTimeLimit = 3 * 60;
-        base.endTimeLimit = 2 * 60;
+        base.endTimeLimit = 3 * 60;
         base.timeLimit = (int)((float)(5 * 60) / manager.speedModifier);
 
         //Messages
@@ -67,13 +67,13 @@ public class MakeACopy : MiniGame {
         Button2.AddComponent<AddScoreOnInteract>();
         Button2.GetComponent<AddScoreOnInteract>().score = -1;
         Button2.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[1];
-        base.loadedObjects.Add(Button1);
+        base.loadedObjects.Add(Button2);
 
         GameObject Button3 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button"), new Vector3(0.775f, 0.856f, 2.086f), Quaternion.Euler(45, 0, 0));
         Button3.AddComponent<AddScoreOnInteract>();
         Button3.GetComponent<AddScoreOnInteract>().score = -1;
         Button3.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[2];
-        base.loadedObjects.Add(Button1);
+        base.loadedObjects.Add(Button3);
 
         /*
         //Need to set all the texts of the buttons here
@@ -91,7 +91,7 @@ public class MakeACopy : MiniGame {
         base.loadedObjects.Add(Button3Text);*/
 
 
-        manager.SetPlayerPosition(new Vector3(0.725f, 0f, 3.051f), 0);
+        manager.SetPlayerPosition(new Vector3(0.725f, 0f, 3.051f), 180);
 
     }
 

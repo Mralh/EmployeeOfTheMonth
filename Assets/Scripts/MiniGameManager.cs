@@ -52,6 +52,7 @@ public class MiniGameManager : MonoBehaviour
         homeGames.Add(new CloseElevator(this));
         homeGames.Add(new BallPit(this));
         homeGames.Add(new PopQuiz(this));
+        homeGames.Add(new PopQuiz(this));
         homeGames.Add(new MakeACopy(this));
         SceneManager.sceneLoaded += setLoadedStatus;
         MiniGameManager.singleton = this;
@@ -245,10 +246,10 @@ public class MiniGameManager : MonoBehaviour
     {
         if (player.name.Equals("VR Player"))
         {
-            player.transform.FindChild("[CameraRig]").eulerAngles = new Vector3(0, yAngle - player.eyeCamera.transform.parent.localEulerAngles.y, 0);
+            player.transform.FindChild("[CameraRig]").eulerAngles = new Vector3(0, yAngle - player.eyeCamera.transform.localEulerAngles.y, 0);
             player.transform.FindChild("[CameraRig]").position = pos;
-            player.transform.FindChild("[CameraRig]").position = pos 
-                - new Vector3(player.eyeCamera.transform.parent.localPosition.x, 0, player.eyeCamera.transform.parent.localPosition.z);
+            /*player.transform.FindChild("[CameraRig]").position = pos 
+                - new Vector3(player.eyeCamera.transform.parent.localPosition.x, 0, player.eyeCamera.transform.parent.localPosition.z);*/
             //
         }
         else

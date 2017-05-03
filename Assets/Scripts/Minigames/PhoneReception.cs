@@ -23,7 +23,7 @@ public class PhoneReception : MiniGame {
         //Timers
         base.startTimeLimit = 5 * 60;
         base.endTimeLimit = 5 * 60;
-        base.timeLimit = (int)((float)(20 * 60) / manager.speedModifier);
+        base.timeLimit = (int)((float)(25 * 60) / manager.speedModifier);
 
         //Messages
         base.introMessages = new string[] { "Grab the phone" };

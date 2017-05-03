@@ -24,7 +24,7 @@ public class BringDogToWorkDay : MiniGame
         //Timers
         base.startTimeLimit = 5*60;
         base.endTimeLimit = 5 * 60;
-        base.timeLimit = (int)((float)(16 * 60) / manager.speedModifier);
+        base.timeLimit = (int)((float)(25 * 60) / manager.speedModifier);
 
         //Messages
         base.introMessages = new string[] { "Bring your dog to work day !! !" };
