@@ -41,17 +41,32 @@ public class MakeACopy : MiniGame {
         Transform spawnList = objectPack.transform.FindChild("SpawnList");
         GameObject copier = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Copier"));
         base.loadedObjects.Add(copier);
+
         copier.transform.position = spawnList.GetChild(Random.Range(0, spawnList.childCount - 1)).position;
 
         List<string> wrongButtonTexts = new List<string> { "Bomb the Russians", "Buy a Car", "Make a Kopy", "Okapi", "Fire Jeff", "Tune Radio", "Sell House on eBay", "Make a Coopy", "Quit Job", "Maek a Copy", "Swear at Copier", "Forgive your wife", "Not Not Not Copy" };
-     
+
         for (int i = 1; i < 6; i++) {
             int index = Random.Range(0, wrongButtonTexts.Count - 1);
             var name = wrongButtonTexts[index];
             selectedButtonTexts.Add(name);
         }
 
-        
+        //Add the score update to the correct button
+        GameObject Button1 = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button1"));
+        Button1.AddComponent<AddScoreOnInteract>();
+        base.loadedObjects.Add(Button1);
+
+        //Need to set all the texts of the buttons here
+
+        for (int j = 0; j < 3; j++)
+        {
+
+            GameObject Button1Text = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button1Text"));
+            //Button1Text.AddComponent<Text>(selectedButtonTexts.Remove());
+            base.loadedObjects.Add(Button1Text);
+
+        }
 
         manager.SetPlayerPosition(new Vector3(-3.565f, 0f, -6.386f), 0);
 
