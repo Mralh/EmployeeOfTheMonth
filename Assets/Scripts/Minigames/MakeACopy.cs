@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class MakeACopy : MiniGame {
@@ -71,15 +72,15 @@ public class MakeACopy : MiniGame {
         //Need to set all the texts of the buttons here
 
         GameObject Button1Text = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button1Text"));
-        //Button1Text.AddComponent<Text>(selectedButtonTexts.Remove());
+        Button1Text.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[0];
         base.loadedObjects.Add(Button1Text);
 
         GameObject Button2Text = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button2Text"));
-        //Button1Text.AddComponent<Text>(selectedButtonTexts.Remove());
+        Button2Text.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[1];
         base.loadedObjects.Add(Button2Text);
 
         GameObject Button3Text = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "Button3Text"));
-        //Button1Text.AddComponent<Text>(selectedButtonTexts.Remove());
+        Button3Text.transform.FindChild("Canvas").FindChild("Text").gameObject.GetComponent<Text>().text = (string)selectedButtonTexts[2];
         base.loadedObjects.Add(Button3Text);
 
 
