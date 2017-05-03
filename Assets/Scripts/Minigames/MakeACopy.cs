@@ -34,8 +34,8 @@ public class MakeACopy : MiniGame {
 
         //Base Game Objects + Lightpacks
         base.loadedObjects.Add(GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Lightpacks/Office/LP_DAY")));
-        GameObject objectPack = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "ObjectPack"));
-        objectPack.name = "ObjectPack";
+        GameObject objectPack = GameObject.Instantiate(Resources.Load<GameObject>(prefabPath + "GameObjectCopy"));
+        objectPack.name = "GameObjectCopy";
         base.loadedObjects.Add(objectPack);
 
         Transform spawnList = objectPack.transform.FindChild("SpawnList");
